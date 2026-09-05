@@ -76,15 +76,15 @@ Seeking a 6-month research internship starting end of March 2027 (3rd-year curri
 
 \cventry{Jun 2026 -- Aug 2026}{}{Image Research Internship – Assisted Image Culling}{DxO, Boulogne-Billancourt}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
-\item Eye-state CNN (6 states, cost-aware loss fitted on EAR distributions): macro-F\textsubscript{1} 0.93, MCC 0.93 on 520 held-out images, with abstention instead of forced guesses
-\item Blur CNN trained on a provenance-balanced corpus (4,728 images, 8 sources): 0.955 out-of-fold on 2 sources, 0.834 on the full set, backed by an interpretable blur map
+\item Eye-state CNN (6 states, EAR cost-aware loss; macro-F\textsubscript{1} 0.93, MCC 0.93 / 520 images) for burst sorting, abstaining instead of guessing
+\item Blur CNN on a provenance-balanced corpus (4,728 images, 8 sources; 0.955 out-of-fold, 0.834 full set) backed by an interpretable blur map
 \end{itemize}
 }
 
 \cventry{Sep 2025 -- May 2026}{}{Scientific Research Project (PSC) – AI \& Supply Chain}{Lokad, France}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Developed an intelligent assistant for Supply Chain Scientists
-\item Architected a modular RAG pipeline (Parsing → Chunking → Embeddings → Retrieval)
+\item Modular RAG pipeline (parsing $\rightarrow$ chunking $\rightarrow$ embeddings $\rightarrow$ retrieval) so experts can query a complex DSL codebase in plain language
 % \item Built a semantic search layer enabling LLMs (Mistral, Gemini) to query complex DSL codebases
 \end{itemize}
 }
