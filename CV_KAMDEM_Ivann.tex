@@ -19,7 +19,7 @@
 \usepackage[utf8]{inputenc}
 
 % adjust the page margins
-\usepackage[left=0.5in,right=0.5in,top=0.45in,bottom=0.45in]{geometry}
+\usepackage[left=0.5in,right=0.5in,top=0.4in,bottom=0.35in]{geometry}
 
 \usepackage{enumitem}
 \usepackage{url}
@@ -34,7 +34,7 @@
 \begin{document}
 
 \makecvtitle
-\vspace{-22pt}
+\vspace{-30pt}
 % \small{
 % Applied Mathematics \& AI student at École Polytechnique.  
 % Passionate about \textbf{AI applied to Infrastructure} (AIOps), Cloud Architecture, and Machine Learning pipelines.  
@@ -75,16 +75,15 @@ search layers.
 
 \section{Professional Experience}
 
-\cventry{Jun 2026 -- Aug 2026}{}{R\&D Internship – Assisted Image Culling}{DxO Labs}{}{
-\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.2em]
-\item Building a modular, reusable culling library to assist photographers in ranking and selecting images from bursts
-\item Designing a multi-signal pluggable architecture (face detection, eye status, smile, pose, background) 
-% \item Currently implementing face-based analysis pipeline as the first brick
+\cventry{Jun 2026 -- Aug 2026}{}{Image Research Internship – Assisted Image Culling}{DxO, Boulogne-Billancourt}{}{
+\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
+\item Eye-status CNN (RegNetY, 6 states, cost-sensitive EAR loss): macro-F\textsubscript{1} 0.93, MCC 0.93 on 520 held-out crops, with abstention class
+\item Blur: 8-source 4,728-row provenance-balanced corpus; hybrid CNN 0.955 $\rightarrow$ 0.834 out-of-fold; interpretable window-based blur field (1.5\,px floor, $\sim$1.3\,s/frame)
 \end{itemize}
 }
 
 \cventry{Sep 2025 -- Mai 2026}{}{Scientific Research Project (PSC) – AI \& Supply Chain}{Lokad, France}{}{
-\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.2em]
+\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Developed an intelligent assistant for Supply Chain Scientists
 \item Architected a modular RAG pipeline (Parsing → Chunking → Embeddings → Retrieval)
 % \item Built a semantic search layer enabling LLMs (Mistral, Gemini) to query complex DSL codebases
@@ -92,7 +91,7 @@ search layers.
 }
 
 \cventry{Mar 2026}{}{IPAI Foundation Hackathon – "Rethink Education"}{Heilbronn, Germany}{}{
-\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.2em]
+\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Selected as one of the top teams from HI! PARIS to compete in an international 50h AI-in-Education hackathon
 \item Built "Sapient.AI", a proactive AI platform unifying school communication channels into a single structured interface and automating timetable management.
 \item Awarded \textbf{3\textsuperscript{rd} prize out of 10 teams}
@@ -100,14 +99,14 @@ search layers.
 }
 
 \cventry{Nov 2025}{}{HI! PARIS – AI \& Data Science Hackathon}{Palaiseau, France}{}{
-\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.2em]
+\begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Tackled two real-world challenges in 48h: large-scale regression on 1M dataset \& gamified ed-tech platform
 \item Awarded the \textbf{Best Scientific Approach Award} for rigorous methodology
 \end{itemize}
 }
 
 % \cventry{Sep 2024 -- Apr 2025}{}{Human Development Internship}{Saint-Antoine de Marcoussis, France}{}{
-% \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.2em]
+% \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 % \item Developed adaptability and communication skills within an educational team
 % \item Led team-building initiatives to foster group cohesion
 % \end{itemize}
@@ -139,7 +138,7 @@ search layers.
 \section{Technical Skills}
 
 \begin{itemize}[leftmargin=.2in]
-\setlength\itemsep{.2em}
+\setlength\itemsep{.1em}
 
 \item \textbf{AI \& Data Science:} ML (XGBoost, GMM), Deep Learning (CNNs), RAG, XAI (SHAP), Agentic AI
 \item \textbf{Cloud \& DevOps:} Docker, GitLab CI/CD, Proxmox (Virtualization), LXC, Cloudflare (Tunnels/Zero Trust)
@@ -155,7 +154,7 @@ search layers.
 
 \begin{itemize}[leftmargin=.2in]
 \item \textbf{Network \& Infrastructure Student Club:} Exploring agentic systems, network architectures and virtualization.
-\item \textbf{Awards:} 3\textsuperscript{rd} prize – IPAI Hackathon 2026, Best Scientific Approach (HI! PARIS 2025), ZTF Academic Laureate (2023, 2021), National Math Olympiad Winner (2021), Bronze Medal – OFM (2021)
+\item \textbf{Awards:} 3\textsuperscript{rd} prize – IPAI Hackathon 2026, Best Scientific Approach (HI! PARIS 2025), ZTF Laureate (2023, 2021), Nat.\ Math Olympiad Winner (2021), Bronze – OFM (2021)
 \item \textbf{Interests:} Recreational cycling, Piano (self-taught), Badminton
 \end{itemize}
 
