@@ -30,3 +30,23 @@ Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 
   `git tag -a "YYYY-MM-DD" -m "YYYY-MM-DD"` →
   push the tag to both remotes → CI builds the PDF and creates the Release.
 - Backfill (tag for an old commit): point it at the original commit.
+
+## Lessons learned (2026-09-05 — tag/release galère, never again)
+
+1. **Spaces/parens are INVALID in git tag names** (`check-ref-format` rejects
+   them). `vX.Y (date)` is impossible — use date-only `YYYY-MM-DD`.
+2. **Replacing tags = delete everywhere first**: local (`git tag -d`),
+   remote (`git push <remote> :refs/tags/<tag>`), plus the attached GitHub
+   Releases (`gh release delete <tag> --yes`) — CI recreates them on push.
+3. **CI tag filter is read from the workflow AT the tagged commit.**
+   Backfill tags on old commits (old `tags: ['v*']` filter) never trigger —
+   create those releases manually:
+   `gh release create <tag> <pdf> --notes "## CV — <tag>…"`,
+   reusing PDFs from the successful CI runs on the same commits
+   (`gh run download <run-id> -n <artifact> -D /tmp/…`).
+4. **Workflow trigger must match future tag formats** (here
+   `tags: ['v*', '[0-9]*']` in `.github/workflows/build-pdf.yml`).
+5. **AGENTS.md was globally git-ignored** (template `.gitignore` + kernel
+   `git-ignore-global`) — both fixed so this file is tracked.
+6. **`make check` order is dashes → build → pages**, and `check` gates `push`
+   — a `---` or 2-page PDF never reaches remotes.
