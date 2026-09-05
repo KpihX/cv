@@ -1,12 +1,1 @@
-# LaTeX build artifacts (all go in build/ subdir)
 build/
-*.pdf
-
-# Agent artifacts (private, never commit)
-.agent/
-CLAUDE.md
-GEMINI.md
-AGENTS.md
-COPILOT.md
-VIBE.md
-.vibe/
