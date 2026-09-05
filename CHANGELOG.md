@@ -4,6 +4,25 @@
 
 ---
 
+## [1.2.0] — 2026-09-05
+
+### Added
+- [x] HR header: centered pitch + 6-month research internship sought from end of March 2027
+- [x] Quantified DxO entry (eye-state CNN, blur corpus) from the culling-presentation deck
+- [x] `scripts/check-dashes.sh`: fail on em-dash (`---`) outside comments, runs first in `make check`
+- [x] `make build` (always rebuilds, no timestamp check); bare `make` shows help
+- [x] `make check`: dashes → build → 1-page gate (also gates `make push`)
+
+### Changed
+- [x] Repo renamed `cv-atf` → `cv` (GitHub `KpihX/cv`, GitLab `kpihx/cv`, remotes `github`/`gitlab`)
+- [x] Skills rewritten in plain language; software/cloud/infra merged
+- [x] Page geometry bottom `0.45in` → `0.3in` to hold 1 page
+
+### Removed
+- [x] `make clean` target
+
+---
+
 ## [1.0.0] — 2026-03-22
 
 ### Added

@@ -19,7 +19,7 @@
 \usepackage[utf8]{inputenc}
 
 % adjust the page margins
-\usepackage[left=0.5in,right=0.5in,top=0.4in,bottom=0.35in]{geometry}
+\usepackage[left=0.5in,right=0.5in,top=0.4in,bottom=0.3in]{geometry}
 
 \usepackage{enumitem}
 \usepackage{url}
@@ -41,10 +41,10 @@
 % Seeking an R\&D internship starting June 2026.
 % }
 
-\small{
-Applied Mathematics \& AI student at École Polytechnique, focused on bringing AI into real products --- from research prototypes to deployed systems.
-Seeking a 6-month research internship starting end of March 2027 (3rd-year curriculum).
-}
+{\centering\small{
+Applied Mathematics \& AI student at École Polytechnique, focused on bringing AI into real products, from research prototypes to deployed systems.
+Seeking a 6-month research internship starting end of March 2027.
+}\par}
 
 
 %----------------------------------------------------------------------------------------
@@ -76,15 +76,15 @@ Seeking a 6-month research internship starting end of March 2027 (3rd-year curri
 
 \cventry{Jun 2026 -- Aug 2026}{}{Image Research Internship – Assisted Image Culling}{DxO, Boulogne-Billancourt}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
-\item Built an eye-state CNN classifier (6 states, EAR-based cost-aware loss), reaching macro-F\textsubscript{1} 0.93 and MCC 0.93 on 520 held-out images, with abstention instead of forced guesses
-\item Architected a blur-detection pipeline on a provenance-balanced corpus (4,728 images, 8 sources), getting 0.955 out-of-fold and 0.834 on the full set, plus an interpretable blur map anyone can inspect
+  \item Built an eye-state geometric detector \& a CNN classifier (open, closed, mi-blink, mi-squint, unknown, not-an-eye), reaching macro-F\textsubscript{1} 0.93 on the test set
+\item Architected a blur-detection pipeline on a provenance-balanced corpus (4,728 images, 8 sources), getting macro-F\textsubscript{1} 0.86 on the test set, plus 2 interpretable blur \& bokeh maps anyone can inspect
 \end{itemize}
 }
 
 \cventry{Sep 2025 -- May 2026}{}{Scientific Research Project (PSC) – AI \& Supply Chain}{Lokad, France}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Developed an intelligent assistant for Supply Chain Scientists
-\item Architected a modular RAG pipeline (Parsing → Chunking → Embeddings → Retrieval)
+\item Architected a modular RAG pipeline (Parsing → Chunking → Embeddings → Retrieval) to help experts query a complex codebase
 % \item Built a semantic search layer enabling LLMs (Mistral, Gemini) to query complex DSL codebases
 \end{itemize}
 }
@@ -140,8 +140,7 @@ Seeking a 6-month research internship starting end of March 2027 (3rd-year curri
 \setlength\itemsep{.1em}
 
 \item \textbf{AI \& machine learning:} learning predictions from data, image analysis with deep learning, assistants powered by language models
-\item \textbf{Software \& cloud:} shipping code with Docker, automated testing and deployment pipelines, running virtualized servers
-\item \textbf{Infrastructure:} secure remote access, web traffic routing, Linux server management
+\item \textbf{Software, cloud \& infrastructure:} Docker, automated testing and deployment pipelines, virtualized servers, secure remote access
 \item \textbf{Programming:} Python (NumPy, Pandas, PyTorch), Java, C, Bash scripting
 \end{itemize}
 
