@@ -21,11 +21,12 @@ Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 
 
 ## Release process (tag format is LAW)
 
-- Tags are **dated**: `vX.Y (YYYY-MM-DD)` — e.g. `v1.2 (2026-09-05)`.
-  Never a plain `vX.Y`: the tag name becomes the Release title
-  (`## CV — <tag>` via `.github/workflows/build-pdf.yml`).
-- All three tags must exist on **both** remotes (`github` + `gitlab`).
+- Tags are **dates**: `YYYY-MM-DD` — e.g. `2026-09-05`.
+  (Plain `vX.Y` retired; `vX.Y (date)` with space/parens is **invalid in git**
+  — `check-ref-format` rejects spaces in ref names.)
+  The tag name becomes the Release title (`## CV — <tag>`).
+- All tags must exist on **both** remotes (`github` + `gitlab`).
 - Order: CHANGELOG entry → commit → `make push` (check gates) →
-  `git tag -a "vX.Y (YYYY-MM-DD)" -m "vX.Y (YYYY-MM-DD)"` →
+  `git tag -a "YYYY-MM-DD" -m "YYYY-MM-DD"` →
   push the tag to both remotes → CI builds the PDF and creates the Release.
-- Pushing a tag for an old commit (backfill): point it at the original commit.
+- Backfill (tag for an old commit): point it at the original commit.

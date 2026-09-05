@@ -80,7 +80,7 @@ Both pipelines trigger on every push to `master`:
 | **GitHub Actions** | `.github/workflows/build-pdf.yml` | `CV_KAMDEM_Ivann.pdf` (90 days) · `preview.png` committed to repo |
 | **GitLab CI** | `.gitlab-ci.yml` | `CV_KAMDEM_Ivann.pdf` + `preview.png` (1 year) |
 
-On **tagged releases** (`git tag vX.Y && git push github --tags`), a GitHub Release is created with the PDF attached.
+On **tagged releases** (`git tag -a 2026-09-05 -m 2026-09-05 && git push github --tags`), a GitHub Release is created with the PDF attached.
 
 ---
 
