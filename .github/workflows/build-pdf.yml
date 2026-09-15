@@ -29,7 +29,7 @@ jobs:
           post_compile: "cp build/CV_KAMDEM_Ivann.pdf CV_KAMDEM_Ivann.pdf"
 
       - name: Upload PDF artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: CV_KAMDEM_Ivann
           path: CV_KAMDEM_Ivann.pdf

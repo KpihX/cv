@@ -4,7 +4,7 @@
 
 ### Fixed
 - [x] Objective: exact school dates (research internship from March 22, 2027, 16 weeks minimum) instead of vague "6-month ... end of March 2027"; wording condensed to hold 1 page
-- [x] GitHub Actions Node 24: checkout v5, upload-artifact v5, gh-release v3 (removes Node 20 deprecation annotation)
+- [x] GitHub Actions Node 24: checkout v5, upload-artifact v6, gh-release v3 (removes Node 20 deprecation annotation)
 
 ---
 
