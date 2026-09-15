@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Fixed
+- [x] Objective: exact school dates (research internship from March 22, 2027, 16 weeks minimum) instead of vague "6-month ... end of March 2027"; wording condensed to hold 1 page
+
 ---
 
 ## [1.2.0] — 2026-09-05
