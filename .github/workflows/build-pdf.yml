@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Compile LaTeX (pdflatex — double pass, artifacts in build/)
         uses: xu-cheng/latex-action@v3
@@ -29,7 +29,7 @@ jobs:
           post_compile: "cp build/CV_KAMDEM_Ivann.pdf CV_KAMDEM_Ivann.pdf"
 
       - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: CV_KAMDEM_Ivann
           path: CV_KAMDEM_Ivann.pdf
@@ -53,7 +53,7 @@ jobs:
 
       - name: Create Release (on tag)
         if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: CV_KAMDEM_Ivann.pdf
           body: |
