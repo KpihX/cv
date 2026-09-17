@@ -27,17 +27,19 @@ Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 
 - **Targeted / Specialized branches (non-master):**
   - **Branch Naming Standard (lowercase):** Exact relative folder name from `Pro/` in full lowercase:
     `<company_or_institution>/<folder_name_in_lowercase>`
+    Uses `_` and `-` following the `Pro/` directory convention:
     Examples:
     - `columbia/stage_columbia_spatially_aware_foundation_models-x_3a_2027`
     - `columbia/stage_columbia_machine_learning_single_cell-x_3a_2027`
     - `freelance/mission_agent_ia_immobilier`
   - **LaTeX Source:** ALWAYS named `CV_KAMDEM_Ivann.tex` across ALL branches (never renamed).
-  - **Root PDF Output:** Dynamically inferred from the branch name where slashes `/` become dashes `-`:
-    `CV_KAMDEM_Ivann-<branch_with_slashes_as_dashes>.pdf`
+  - **Root PDF Output:** Dynamically inferred from the branch name through mathematical rule:
+    `/` becomes `-`, and every character at start or immediately following `_` or `-` is capitalized:
+    `CV_KAMDEM_Ivann-<branch_with_slashes_as_dashes_capitalized>.pdf`
     Examples:
-    - `CV_KAMDEM_Ivann-columbia-stage_columbia_spatially_aware_foundation_models-x_3a_2027.pdf`
-    - `CV_KAMDEM_Ivann-columbia-stage_columbia_machine_learning_single_cell-x_3a_2027.pdf`
-    - `CV_KAMDEM_Ivann-freelance-mission_agent_ia_immobilier.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Stage_Columbia_Spatially_Aware_Foundation_Models-X_3a_2027.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Stage_Columbia_Machine_Learning_Single_Cell-X_3a_2027.pdf`
+    - `CV_KAMDEM_Ivann-Freelance-Mission_Agent_Ia_Immobilier.pdf`
   - **Git Cleanliness:** Every branch tracks its own `CV_KAMDEM_Ivann.tex` and its specific output `.pdf` without collisions or leftover files.
 
 ## Release process (tag format is LAW)

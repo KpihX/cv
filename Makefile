@@ -1,14 +1,10 @@
 SOURCE   = CV_KAMDEM_Ivann
 BUILDDIR = build
 
-# Detect target PDF name dynamically from git branch (Pro convention: relative Pro path in lowercase, / becomes -)
+# Detect target PDF name dynamically from git branch (Pro convention: / -> -, any char after start/[-_] capitalized)
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
-
-ifeq ($(filter $(BRANCH),master main HEAD),)
-PDF_OUT = $(SOURCE)-$(subst /,-,$(BRANCH)).pdf
-else
-PDF_OUT = $(SOURCE).pdf
-endif
+PDF_OUT = $(shell python3 -c 'import re; b = "$(BRANCH)"; src = "$(SOURCE)"; \
+print(f"{src}.pdf" if not b or b in ["master", "main", "HEAD"] else f"{src}-" + re.sub(r"(?:^|[-_])([a-z0-9])", lambda m: m.group(0).upper(), b.replace("/", "-")) + ".pdf")')
 
 .DEFAULT_GOAL := help
 
