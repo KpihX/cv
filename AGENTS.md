@@ -19,6 +19,27 @@ Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 
 5. **One page, always.** `make check` fails on ≠1 page. If content overflows,
    condense wording first — never shrink fonts or cheat margins further.
 
+## Branch naming and Multi-Track Architecture (GRAVE)
+
+- **`master` branch:** canonical source of truth for generic engineering/AI applications.
+  - Source LaTeX: `CV_KAMDEM_Ivann.tex`
+  - Root PDF output: `CV_KAMDEM_Ivann.pdf`
+- **Targeted / Specialized branches (non-master):**
+  - **Branch Naming Standard (lowercase):** `<company_or_institution>/<role_or_subject>`
+    Examples:
+    - `columbia/spatially-aware-foundation-models`
+    - `columbia/single-cell-perturbation-data`
+    - `freelance/agent-ia-immobilier`
+  - **LaTeX Source:** ALWAYS named `CV_KAMDEM_Ivann.tex` across ALL branches (never renamed).
+  - **Root PDF Output:** The compiled PDF at root is the ONLY file named specifically to identify the target:
+    `CV_KAMDEM_Ivann-<Company_or_Institution>-<Subject_or_Role>.pdf`
+    (Matching the `Pro/` directory convention where slashes `/` become dashes `-`).
+    Examples:
+    - `CV_KAMDEM_Ivann-Columbia-Spatially_Aware_Foundation_Models.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Single_Cell_Perturbation_Data.pdf`
+    - `CV_KAMDEM_Ivann-Freelance-Agent_IA_Immobilier.pdf`
+  - **Git Cleanliness:** Every branch tracks its own `CV_KAMDEM_Ivann.tex` and its specific output `.pdf` without collisions or leftover files.
+
 ## Release process (tag format is LAW)
 
 - Tags are **dates**: `YYYY-MM-DD` — e.g. `2026-09-05`.
