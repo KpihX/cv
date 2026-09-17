@@ -2,6 +2,11 @@
 
 LaTeX CV (moderncv banking, blue, pdflatex) — single source `CV_KAMDEM_Ivann.tex`.
 Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 1 page, gates `make push`) · `make push` (github + gitlab).
+Builds are **reproducible** (`FORCE_SOURCE_DATE=1` + `SOURCE_DATE_EPOCH` = last commit time), so rebuilding an unchanged source yields a byte-identical PDF and never leaves the worktree dirty.
+
+## Shared files (GRAVE: identical on EVERY branch)
+
+`Makefile`, `.gitignore`, `AGENTS.md`, `CHANGELOG.md` are **strictly identical on all branches**. Edit once, propagate everywhere. On `master` they are left **uncommitted**: agents never commit to `master`.
 
 ## Style guide (KπX rules — enforced on every CV edit)
 
@@ -25,19 +30,18 @@ Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 
   - Source LaTeX: `CV_KAMDEM_Ivann.tex`
   - Root PDF output: `CV_KAMDEM_Ivann.pdf`
 - **Targeted / Specialized branches (non-master):**
-  - **Branch Naming Standard (lowercase):** Exact relative folder name from `Pro/` in full lowercase:
-    `<company_or_institution>/<folder_name_in_lowercase>`
+  - **Branch Naming Standard:** the `Pro/` relative folder path, lowercased for words but keeping acronym casing (`3A`, `IA`), so the derived PDF name is exactly the `Pro/` path with `/` turned into `-`:
+    `<company_or_institution>/<folder_name>`
     Examples:
-    - `columbia/stage_columbia_spatially_aware_foundation_models-x_3a_2027`
-    - `columbia/stage_columbia_machine_learning_single_cell-x_3a_2027`
-    - `freelance/mission_agent_ia_immobilier`
+    - `columbia/stage_columbia_spatially_aware_foundation_models-x_3A_2027`
+    - `columbia/stage_columbia_machine_learning_single_cell-x_3A_2027`
+    - `freelance/mission_agent_IA_immobilier`
   - **LaTeX Source:** ALWAYS named `CV_KAMDEM_Ivann.tex` across ALL branches (never renamed).
-  - **Root PDF Output:** Dynamically inferred from the branch name where slashes `/` become dashes `-`:
-    `CV_KAMDEM_Ivann-<branch_with_slashes_as_dashes>.pdf`
+  - **Root PDF Output (derived by the `Makefile`, non-master branches only):** take the branch name, replace `/` with `-`, uppercase the first character and every character right after a `-` or `_`, then prepend `CV_KAMDEM_Ivann-`:
     Examples:
-    - `CV_KAMDEM_Ivann-columbia-stage_columbia_spatially_aware_foundation_models-x_3a_2027.pdf`
-    - `CV_KAMDEM_Ivann-columbia-stage_columbia_machine_learning_single_cell-x_3a_2027.pdf`
-    - `CV_KAMDEM_Ivann-freelance-mission_agent_ia_immobilier.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Stage_Columbia_Spatially_Aware_Foundation_Models-X_3A_2027.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Stage_Columbia_Machine_Learning_Single_Cell-X_3A_2027.pdf`
+    - `CV_KAMDEM_Ivann-Freelance-Mission_Agent_IA_Immobilier.pdf`
   - **Git Cleanliness:** Every branch tracks its own `CV_KAMDEM_Ivann.tex` and its specific output `.pdf` without collisions or leftover files.
 
 ## Release process (tag format is LAW)

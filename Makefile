@@ -1,14 +1,15 @@
 SOURCE   = CV_KAMDEM_Ivann
 BUILDDIR = build
 
-# Detect target PDF name dynamically from git branch (Pro convention: relative Pro path in lowercase, / becomes -)
-BRANCH = $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
+# Reproducible PDF: pin the embedded timestamp to the repository root commit so
+# any rebuild of an unchanged source is byte-identical (worktree never goes dirty).
+SOURCE_DATE_EPOCH ?= $(shell git log --reverse --format=%ct 2>/dev/null | head -1 || echo 0)
+PDFTEX = FORCE_SOURCE_DATE=1 SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) pdflatex
 
-ifeq ($(filter $(BRANCH),master main HEAD),)
-PDF_OUT = $(SOURCE)-$(subst /,-,$(BRANCH)).pdf
-else
-PDF_OUT = $(SOURCE).pdf
-endif
+# Target PDF name = branch name with / -> - and every char after start/-/_ upcased (Pro/ convention)
+BRANCH = $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
+PDF_OUT = $(shell python3 -c 'import re; b = "$(BRANCH)"; src = "$(SOURCE)"; \
+print(f"{src}.pdf" if not b or b in ["master", "main", "HEAD"] else f"{src}-" + re.sub(r"(?:^|[-_])([a-z0-9])", lambda m: m.group(0).upper(), b.replace("/", "-")) + ".pdf")')
 
 .DEFAULT_GOAL := help
 
@@ -17,10 +18,10 @@ endif
 help:  ## Show this help
 	@grep -E '^[a-z-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-10s %s\n", $$1, $$2}'
 
-build:  ## Compile : double pdflatex pass, PDF copied to root target name
+build:  ## Compile : double pdflatex pass (reproducible), PDF copied to root target name
 	mkdir -p $(BUILDDIR)
-	pdflatex -interaction=nonstopmode -output-directory=$(BUILDDIR) $(SOURCE).tex
-	pdflatex -interaction=nonstopmode -output-directory=$(BUILDDIR) $(SOURCE).tex
+	$(PDFTEX) -interaction=nonstopmode -output-directory=$(BUILDDIR) $(SOURCE).tex
+	$(PDFTEX) -interaction=nonstopmode -output-directory=$(BUILDDIR) $(SOURCE).tex
 	cp $(BUILDDIR)/$(SOURCE).pdf $(PDF_OUT)
 
 preview: build  ## Generate preview.png from the PDF (requires imagemagick)
