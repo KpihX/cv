@@ -3,28 +3,20 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \documentclass[11pt,a4paper]{moderncv}
 
-% Color MUST be declared before style (moderncv v2.4.1): banking does
-% \colorlet{sectioncolor}{color1} at package load time — color1 must
-% already exist, otherwise it silently falls back to black.
 \moderncvcolor{blue}
 \moderncvstyle{banking}
 
-% Override first-name tint: banking default is lastnamecolor!60 (lighter).
-% Force both first and last name to the same full blue.
 \colorlet{firstnamecolor}{color1}
 
-% pdflatex font encoding — gives proper bold/italic with tgpagella
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 
-% adjust the page margins
 \usepackage[left=0.5in,right=0.5in,top=0.4in,bottom=0.3in]{geometry}
 
 \usepackage{enumitem}
 \usepackage{url}
 
-% personal data
 \name{Ivann H.}{KAMDEM POUOKAM}
 \address{9 Boulevard des Maréchaux, 91120 Palaiseau}{France}{}
 \phone[mobile]{+33 6 05 95 77 85}
@@ -35,32 +27,22 @@
 
 \makecvtitle
 \vspace{-30pt}
-% \small{
-% Applied Mathematics \& AI student at École Polytechnique.  
-% Passionate about \textbf{AI applied to Infrastructure} (AIOps), Cloud Architecture, and Machine Learning pipelines.  
-% Seeking an R\&D internship starting June 2026.
-% }
 
 {\centering\small{
-Applied Mathematics \& AI student at École Polytechnique, focused on bringing AI into real products, from research prototypes to deployed systems.
+Applied Mathematics \& AI student at École Polytechnique, focused on statistical learning, generative modeling, and high-dimensional data analysis.
 Seeking a research internship from March 22, 2027 (16 weeks minimum).
 }\par}
 
-
-%----------------------------------------------------------------------------------------
-%   EDUCATION
-%----------------------------------------------------------------------------------------
-
 \section{Education}
 
-\cventry{2024 -- Present}{}{École Polytechnique}{Palaiseau, France}{}{
+\cventry{2024--Present}{}{École Polytechnique}{Palaiseau, France}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.0em]
-\item Applied Mathematics \& Computer Science track
+\item Applied Mathematics \& Computer Science track (Machine Learning, Statistics, Database Systems)
 \item Working toward a Master’s-level engineering degree (expected 2028)
 \end{itemize}
 }
 
-\cventry{2021 -- 2024}{}{National Advanced School of Engineering of Yaoundé}{Cameroon}{}{
+\cventry{2021--2024}{}{National Advanced School of Engineering of Yaoundé}{Cameroon}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.0em]
 \item Leading engineering school in Cameroon
 \item 2 years common core in Mathematics, Physics, IT (ranked 2\textsuperscript{nd}/400)
@@ -68,91 +50,51 @@ Seeking a research internship from March 22, 2027 (16 weeks minimum).
 \end{itemize}
 }
 
-%----------------------------------------------------------------------------------------
-%   PROFESSIONAL EXPERIENCE
-%----------------------------------------------------------------------------------------
-
 \section{Professional Experience}
 
-\cventry{Jun 2026 -- Aug 2026}{}{Image Research Internship – Assisted Image Culling}{DxO, Boulogne-Billancourt}{}{
+\cventry{Jun 2026--Aug 2026}{}{Image Research Internship, Assisted Image Culling}{DxO, Boulogne-Billancourt}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
-  \item Built an eye-state geometric detector \& a CNN classifier (open, closed, mi-blink, mi-squint, unknown, not-an-eye), reaching macro-F\textsubscript{1} 0.93 on the test set
-\item Architected a blur-detection pipeline on a provenance-balanced corpus (4,728 images, 8 sources), getting macro-F\textsubscript{1} 0.86 on the test set, plus 2 interpretable blur \& bokeh maps anyone can inspect
+  \item Formulated a rotation-invariant PCA geometric model on landmark covariance spectra \& trained a CNN classifier, reaching macro-F\textsubscript{1} 0.93 on unconstrained test sets
+  \item Modeled continuous blur fields via variational energy minimization and luminance-guided diffusion across 4,728 provenance-balanced images, auditing multi-source biases with NMI and metadata cheater baselines (macro-F\textsubscript{1} 0.86)
 \end{itemize}
 }
 
-\cventry{Sep 2025 -- May 2026}{}{Scientific Research Project (PSC) – AI \& Supply Chain}{Lokad, France}{}{
+\cventry{Sep 2025--May 2026}{}{Scientific Research Project (PSC), AI \& Supply Chain}{Lokad, France}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
-\item Developed an intelligent assistant for Supply Chain Scientists
-\item Architected a modular RAG pipeline (Parsing → Chunking → Embeddings → Retrieval) to help experts query a complex codebase
-% \item Built a semantic search layer enabling LLMs (Mistral, Gemini) to query complex DSL codebases
+\item Developed an intelligent assistant for Supply Chain Scientists to navigate large-scale enterprise DSLs
+\item Architected a modular RAG pipeline (AST parsing, semantic chunking, dense embeddings, deterministic evaluation benchmarks) for complex codebases
 \end{itemize}
 }
 
-\cventry{Mar 2026}{}{IPAI Foundation Hackathon – "Rethink Education"}{Heilbronn, Germany}{}{
+\cventry{Mar 2026}{}{IPAI Foundation Hackathon, "Rethink Education"}{Heilbronn, Germany}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Selected as one of the top teams from HI! PARIS to compete in an international 50h AI-in-Education hackathon
-\item Built "Sapient.AI", a proactive AI platform unifying school communication channels into a single structured interface and automating timetable management.
-\item Awarded \textbf{3\textsuperscript{rd} prize out of 10 teams}
+\item Built "Sapient.AI", an autonomous agent platform unifying communication channels into structured timelines, awarded \textbf{3\textsuperscript{rd} prize out of 10 teams}
 \end{itemize}
 }
 
-\cventry{Nov 2025}{}{HI! PARIS – AI \& Data Science Hackathon}{Palaiseau, France}{}{
+\cventry{Nov 2025}{}{HI! PARIS, AI \& Data Science Hackathon}{Palaiseau, France}{}{
 \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
 \item Tackled two real-world challenges in 48h: large-scale regression on 1M dataset \& gamified ed-tech platform
-\item Awarded the \textbf{Best Scientific Approach Award} for rigorous methodology
+\item Awarded the \textbf{Best Scientific Approach Award} for rigorous predictive modeling methodology
 \end{itemize}
 }
-
-% \cventry{Sep 2024 -- Apr 2025}{}{Human Development Internship}{Saint-Antoine de Marcoussis, France}{}{
-% \begin{itemize}[leftmargin=0.15in, topsep=0pt, itemsep=0.1em]
-% \item Developed adaptability and communication skills within an educational team
-% \item Led team-building initiatives to foster group cohesion
-% \end{itemize}
-% }
-
-%----------------------------------------------------------------------------------------
-%   PROJECTS HIGHLIGHTS
-%----------------------------------------------------------------------------------------
-
-% \section{Projects Highlights}
-
-% \begin{itemize}[leftmargin=.2in]
-% \setlength\itemsep{0.35em}
-
-% \item \textbf{Homelab \& Cloud Infrastructure "kpihx-labs" (Personal R\&D)}  
-% Designed a \textbf{self-hosted private cloud} (Proxmox, LXC) with full \textbf{GitLab CI/CD} automation.  
-% Architected a secure mesh network using \textbf{Tailscale} \& \textbf{Cloudflare Tunnels} (Zero Trust) to expose services via \textbf{Traefik}.  
-% % Developing an \textbf{AI Copilot} (AIOps) to proactively analyze logs and suggest remediation, moving from reactive monitoring to autonomous supervision.
-
-% \item \textbf{Gaussian Mixture Models \& MNIST}  
-% Implemented MAP classification, EM algorithm for GMMs, and a CNN-based feature extractor reaching 99\% accuracy on MNIST.
-
-% \end{itemize}
-
-%----------------------------------------------------------------------------------------
-%   SKILLS
-%----------------------------------------------------------------------------------------
 
 \section{Technical Skills}
 
 \begin{itemize}[leftmargin=.2in]
 \setlength\itemsep{.1em}
 
-\item \textbf{AI \& machine learning:} learning predictions from data, image analysis with deep learning, assistants powered by language models
-\item \textbf{Software, cloud \& infrastructure:} Docker, automated testing and deployment pipelines, virtualized servers, secure remote access
-\item \textbf{Programming:} Python (NumPy, Pandas, PyTorch), Java, C, Bash scripting
+\item \textbf{Statistical learning \& AI:} high-dimensional data analysis, generative models (VAEs, diffusion), deep learning, statistical audits (NMI, MCC)
+\item \textbf{Systems \& tooling:} automated testing, reproducible scientific pipelines, Linux environments, Docker, Git
+\item \textbf{Programming \& scientific stack:} Python (PyTorch, NumPy, SciPy, Pandas), Java, C, Bash scripting
 \end{itemize}
-
-%----------------------------------------------------------------------------------------
-%   EXTRACURRICULARS & AWARDS
-%----------------------------------------------------------------------------------------
 
 \section{Extracurriculars \& Awards}
 
 \begin{itemize}[leftmargin=.2in]
 \item \textbf{Network \& Infrastructure Student Club:} Exploring agentic systems, network architectures and virtualization.
-\item \textbf{Awards:} 3\textsuperscript{rd} prize – IPAI Hackathon 2026, Best Scientific Approach (HI! PARIS 2025), ZTF Laureate (2023, 2021), Nat.\ Math Olympiad Winner (2021), Bronze – OFM (2021)
+\item \textbf{Awards:} 3\textsuperscript{rd} prize (IPAI Hackathon 2026), Best Scientific Approach (HI! PARIS 2025), ZTF Laureate (2023, 2021), Nat.\ Math Olympiad Winner (2021), Bronze (OFM 2021)
 \item \textbf{Interests:} Recreational cycling, Piano (self-taught), Badminton
 \end{itemize}
 
