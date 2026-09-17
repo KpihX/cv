@@ -1,15 +1,11 @@
 SOURCE   = CV_KAMDEM_Ivann
 BUILDDIR = build
 
-# Detect target PDF name from git branch (fallback to CV_KAMDEM_Ivann.pdf on master/main)
+# Detect target PDF name dynamically from git branch (Pro convention: relative Pro path in lowercase, / becomes -)
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-ifeq ($(BRANCH),columbia/spatially-aware-foundation-models)
-PDF_OUT = $(SOURCE)-Columbia-Spatially_Aware_Foundation_Models.pdf
-else ifeq ($(BRANCH),columbia/single-cell-perturbation-data)
-PDF_OUT = $(SOURCE)-Columbia-Single_Cell_Perturbation_Data.pdf
-else ifeq ($(BRANCH),freelance/agent-ia-immobilier)
-PDF_OUT = $(SOURCE)-Freelance-Agent_IA_Immobilier.pdf
+ifeq ($(filter $(BRANCH),master main HEAD),)
+PDF_OUT = $(SOURCE)-$(subst /,-,$(BRANCH)).pdf
 else
 PDF_OUT = $(SOURCE).pdf
 endif
