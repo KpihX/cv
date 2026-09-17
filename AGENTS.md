@@ -32,12 +32,12 @@ Workflows: `make build` (always rebuilds) · `make check` (dashes → build → 
     - `columbia/stage_columbia_machine_learning_single_cell-x_3a_2027`
     - `freelance/mission_agent_ia_immobilier`
   - **LaTeX Source:** ALWAYS named `CV_KAMDEM_Ivann.tex` across ALL branches (never renamed).
-  - **Root PDF Output:** Dynamically inferred from the branch name where slashes `/` become dashes `-`:
-    `CV_KAMDEM_Ivann-<branch_with_slashes_as_dashes>.pdf`
+  - **Root PDF Output:** Exact `Pro/` naming with slashes `/` replaced by dashes `-`:
+    `CV_KAMDEM_Ivann-<Company_or_Institution>-<Subject_or_Role_with_Pro_Case>.pdf`
     Examples:
-    - `CV_KAMDEM_Ivann-columbia-stage_columbia_spatially_aware_foundation_models-x_3a_2027.pdf`
-    - `CV_KAMDEM_Ivann-columbia-stage_columbia_machine_learning_single_cell-x_3a_2027.pdf`
-    - `CV_KAMDEM_Ivann-freelance-mission_agent_ia_immobilier.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Stage_Columbia_Spatially_Aware_Foundation_Models-X_3A_2027.pdf`
+    - `CV_KAMDEM_Ivann-Columbia-Stage_Columbia_Machine_Learning_Single_Cell-X_3A_2027.pdf`
+    - `CV_KAMDEM_Ivann-Freelance-Mission_Agent_IA_Immobilier.pdf`
   - **Git Cleanliness:** Every branch tracks its own `CV_KAMDEM_Ivann.tex` and its specific output `.pdf` without collisions or leftover files.
 
 ## Release process (tag format is LAW)
