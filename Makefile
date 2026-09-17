@@ -1,15 +1,10 @@
 SOURCE   = CV_KAMDEM_Ivann
 BUILDDIR = build
 
-# Detect target PDF name dynamically from git branch matching exact Pro/ case naming
+# Target PDF name = branch name with / -> - and every char after start/-/_ upcased (Pro/ convention)
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
 PDF_OUT = $(shell python3 -c 'import re; b = "$(BRANCH)"; src = "$(SOURCE)"; \
-pro_cases = { \
-    "columbia/stage_columbia_spatially_aware_foundation_models-x_3a_2027": "Columbia-Stage_Columbia_Spatially_Aware_Foundation_Models-X_3A_2027", \
-    "columbia/stage_columbia_machine_learning_single_cell-x_3a_2027": "Columbia-Stage_Columbia_Machine_Learning_Single_Cell-X_3A_2027", \
-    "freelance/mission_agent_ia_immobilier": "Freelance-Mission_Agent_IA_Immobilier", \
-}; \
-print(f"{src}.pdf" if b in ["master", "main", "HEAD", ""] else f"{src}-{pro_cases[b]}.pdf" if b in pro_cases else f"{src}-" + "-".join("".join(t.capitalize() if t not in ["-", "_"] else t for t in re.split(r"([-_])", s)) for s in b.split("/")) + ".pdf")')
+print(f"{src}.pdf" if not b or b in ["master", "main", "HEAD"] else f"{src}-" + re.sub(r"(?:^|[-_])([a-z0-9])", lambda m: m.group(0).upper(), b.replace("/", "-")) + ".pdf")')
 
 .DEFAULT_GOAL := help
 
